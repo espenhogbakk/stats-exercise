@@ -6,7 +6,7 @@ Some quick notes:
 
 * MySQL engine MyISAM selected for faster read performance
 * MD5 hashing of page view table columns in MySQL for faster inserts
-* GET #top_referrers should be way faster, the current implementation uses
+* `GET #top_referrers` should be way faster, the current implementation uses
   way to many queries to be efficient.
 * Because of indexes on `page_views` table seeding the database takes a
   *suuuuper* long time even when doing bulk inserts, so please have patience.
@@ -15,7 +15,7 @@ Some quick notes:
 ## Requirements
 
 - MySQL running under local user (on OSX install with Homebrew)
-- Ruby 2.3.1
+- Ruby 2.3.1 (should work with earlier versions, but not tested)
 - Bundler
 
 
