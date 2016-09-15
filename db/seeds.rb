@@ -48,6 +48,9 @@ def db_import(bulk)
 end
 
 # Create test data
+#
+# Inserting in bulk will in most cases increase insert performance, but the
+# indexes we have on the `page_views` table makes inserting super slow anyway.
 bulk = [];
 counter = 0
 PAGE_VIEWS.times do
