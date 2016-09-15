@@ -1,6 +1,6 @@
 # Stats Exercise
 
-This is an exercise exploring the ways to show some web analytics.
+Prototype of a web analytics tool
 
 Some quick notes:
 
