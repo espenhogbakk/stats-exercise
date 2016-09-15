@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Stats Exercise</title>
+    <%= stylesheet_link_tag    :application, media: 'all' %>
+    <%= javascript_include_tag :application %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <h1 class="heading">Stats Exercise</h1>
+
+      <div ng-app="reports">
+        <section id="top-urls" class="charts" ng-controller="TopUrlsController">
+          <h1>Top Urls</h1>
+          <top-urls-chart
+            style="height: 400px; min-width: 1000px;"
+            class="top-urls-chart"
+            title="Top URLs"
+            series="series"
+            categories="dates">
+          </top-urls-chart>
+        </section>
+
+        <section id="top-referrers" class="charts" ng-controller="TopReferrersController">
+          <h1>Top Referrers</h1>
+
+          <div class="date" ng-repeat="(date, sites) in data">
+            <h2>{{date}}</h2>
+            <hr>
+            <div class="site" ng-repeat="site in sites">
+              <referral-chart style="height: 400px;" site="site"></referral-chart>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </body>
+</html>
