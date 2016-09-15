@@ -10,6 +10,7 @@ Some quick notes:
   way to many queries to be efficient.
 * Because of indexes on `page_views` table seeding the database takes a
   *suuuuper* long time even when doing bulk inserts, so please have patience.
+* The referral pie charts are not an optimal way of representing this data.
 
 ## Requirements
 
