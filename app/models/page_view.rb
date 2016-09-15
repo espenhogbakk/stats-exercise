@@ -37,7 +37,11 @@ class PageView < Sequel::Model
         count(:url).as(:visits),
       ]}
       .group(:referrer, :url)
-      .where(created_at: (date.beginning_of_day..date.end_of_day), url: url )
+      .where(
+        created_at: (date.beginning_of_day..date.end_of_day),
+        url: url
+      )
+      .exclude(referrer: nil)
       .order(:visits)
       .reverse
       .limit(limit)

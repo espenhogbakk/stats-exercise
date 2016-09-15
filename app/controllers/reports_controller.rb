@@ -25,6 +25,10 @@ class ReportsController < ApplicationController
     # couldn't figure out a way to do it. Seems like PostgreSQLs Window
     # functions might be of help here, but since we are using MySQL which
     # doesn't support it we are out of luck.
+    #
+    # I'm sure this is another clever way to do this, maybe with 2 queries,
+    # one for top urls, and one for top referrers, and then merge the data
+    # somehow. But it seems that my SQL skills don't suffice.
     for date in dates
       PageView
         .top_n_urls_for_date(10, date)
