@@ -29,19 +29,24 @@ class ReportsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should return top referrers in JSON" do
-    date = Date.today
+    dates = (11.days.ago.to_date..Date.today)
+    url = 'http://apple.com'
     referrer = 'http://facebook.com'
-    page_view = PageView.create(url: 'http://apple.com', referrer: referrer, created_at: date)
+    dates.each do |date|
+      PageView.create(url: url, referrer: referrer, created_at: date)
+    end
 
     get top_referrers_url
 
     json = JSON.parse(response.body)
-    assert_equal json[date.to_s], [
-      "url" => page_view.url,
+
+    assert_equal json[dates.last.to_s], [
+      "url" => url,
       "visits" => 1,
       "referrers" => [{
         "url" => referrer, "visits" => 1
       }]
     ]
+    assert_equal 5, json.length
   end
 end

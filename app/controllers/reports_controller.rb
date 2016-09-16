@@ -18,7 +18,7 @@ class ReportsController < ApplicationController
     results = {}
 
     # Get list of last 5 days
-    dates = (5.days.ago.to_date..Date.today).to_a
+    dates = (4.days.ago.to_date..Date.today).to_a
 
     # Sadly we have to loop through all the days (and the urls) and do several
     # queries. I would prefer to do everything in one single query, but I
