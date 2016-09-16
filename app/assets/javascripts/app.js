@@ -15,14 +15,14 @@ reports.directive('referralChart', function() {
     scope: {
       site: '=',
     },
-    link: function (scope, element) {
+    link: function ($scope, element) {
       Highcharts.chart(element[0], {
         chart: {
           type: 'pie'
         },
 
         title: {
-          text: scope.site.url,
+          text: $scope.site.url,
         },
 
         plotOptions: {
@@ -41,7 +41,7 @@ reports.directive('referralChart', function() {
 
         series: [{
           name: 'Referrals',
-          data: _.map(scope.site.referrers, function(referrer) {
+          data: _.map($scope.site.referrers, function(referrer) {
             return {
               name: referrer.url,
               y: referrer.visits,
