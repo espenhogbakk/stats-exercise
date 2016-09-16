@@ -11,6 +11,7 @@ class PageView < Sequel::Model
 
   dataset_module do
     def last_days(num_days)
+      num_days -= 1
       where(created_at: (num_days.days.ago.beginning_of_day..Time.now))
     end
 
