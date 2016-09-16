@@ -1,8 +1,5 @@
 require 'test_helper'
 
-def create_page_view created_at
-end
-
 class ReportsControllerTest < ActionDispatch::IntegrationTest
   url = 'http://apple.com'
   referrer = 'http://facebook.com'
