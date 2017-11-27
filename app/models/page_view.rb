@@ -26,7 +26,7 @@ class PageView < Sequel::Model
     def top_n_urls_for_date(limit, date)
       where(created_at: (date.beginning_of_day..date.end_of_day))
       .select{[ created_at.cast(Date).as(:date), :url, count(:url).as(:visits)]}
-      .group(:url)
+      .group(:url, :created_at)
       .order(:visits)
       .reverse
       .limit(limit)
